@@ -1,10 +1,12 @@
-"use client"; // ✅ Tambahkan ini di bagian atas
+"use client";
 
 import React, { useState } from "react";
 import Note from "@/components/Note";
 
 const DiaryPage = () => {
-  const [notes, setNotes] = useState([{ id: 1, title: "Catatan Pertama", content: "Ini adalah catatan pertama saya." }]);
+  const [notes, setNotes] = useState([
+    { id: 1, title: "Catatan Pertama", content: "Ini adalah catatan pertama saya." },
+  ]);
   const [newTitle, setNewTitle] = useState("");
   const [newContent, setNewContent] = useState("");
 
@@ -18,6 +20,14 @@ const DiaryPage = () => {
 
   const deleteNote = (id: number) => {
     setNotes(notes.filter((note) => note.id !== id));
+  };
+
+  const editNote = (id: number, newTitle: string, newContent: string) => {
+    setNotes(
+      notes.map((note) =>
+        note.id === id ? { ...note, title: newTitle, content: newContent } : note
+      )
+    );
   };
 
   return (
@@ -38,11 +48,21 @@ const DiaryPage = () => {
           onChange={(e) => setNewContent(e.target.value)}
           className="border p-2 rounded mr-2"
         />
-        <button onClick={addNote} className="bg-green-500 text-white py-1 px-4 rounded">Tambah</button>
+        <button
+          onClick={addNote}
+          className="bg-green-500 text-white py-1 px-4 rounded hover:bg-green-600 hover:scale-105 transition transform"
+        >
+          Tambah
+        </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {notes.map((note) => (
-          <Note key={note.id} note={note} onDelete={deleteNote} />
+          <Note
+            key={note.id}
+            note={note}
+            onDelete={deleteNote}
+            onEdit={editNote}
+          />
         ))}
       </div>
     </div>

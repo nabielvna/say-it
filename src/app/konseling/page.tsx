@@ -6,6 +6,7 @@ const counselors = [
     id: 1,
     name: "Vina",
     image: "https://images.pexels.com/photos/7578803/pexels-photo-7578803.jpeg",
+    bio: "Experienced counselor with 5 years of expertise.",
     packages: [
       { duration: "1 Hari", price: "Rp19.000" },
       { duration: "1 Minggu", price: "Rp105.000" },
@@ -16,6 +17,7 @@ const counselors = [
     id: 2,
     name: "Rizky",
     image: "https://images.pexels.com/photos/7578803/pexels-photo-7578803.jpeg",
+    bio: "Passionate about mental health and well-being.",
     packages: [
       { duration: "1 Hari", price: "Rp19.000" },
       { duration: "1 Minggu", price: "Rp105.000" },
@@ -26,6 +28,7 @@ const counselors = [
     id: 3,
     name: "Rafli",
     image: "https://images.pexels.com/photos/7578803/pexels-photo-7578803.jpeg",
+    bio: "Dedicated to helping clients achieve their goals.",
     packages: [
       { duration: "1 Hari", price: "Rp19.000" },
       { duration: "1 Minggu", price: "Rp105.000" },
